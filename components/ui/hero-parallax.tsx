@@ -8,14 +8,15 @@ import {
   MotionValue,
 } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
+
+import { TextGenerateEffect } from "./text-generate-effect";
 
 export const HeroParallax = ({
   products,
 }: {
   products: {
     title: string;
-    link: string;
+
     thumbnail: string;
   }[];
 }) => {
@@ -51,7 +52,7 @@ export const HeroParallax = ({
     springConfig
   );
   const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 500]),
+    useTransform(scrollYProgress, [0, 0.2], [-700, 300]),
     springConfig
   );
   return (
@@ -74,7 +75,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={product.thumbnail}
             />
           ))}
         </motion.div>
@@ -83,7 +84,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateXReverse}
-              key={product.title}
+              key={product.thumbnail}
             />
           ))}
         </motion.div>
@@ -92,7 +93,7 @@ export const HeroParallax = ({
             <ProductCard
               product={product}
               translate={translateX}
-              key={product.title}
+              key={product.thumbnail}
             />
           ))}
         </motion.div>
@@ -102,15 +103,18 @@ export const HeroParallax = ({
 };
 
 export const Header = () => {
+  const word =
+    "Crowley Paint & Body is an auto body shop located in Crowley, TX, providing the area with quality auto body repairs since 2011. Our focus is high quality repairs, served with integrity for our customers and their vehicles.";
   return (
     <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        The Ultimate <br /> development studio
+      <h1 className="text-2xl md:text-7xl font-bold dark:text-white z-100">
+        Crowley <br />
+        <span className="text-[#2b4057]">Paint & Body Collision</span>
+        <br />
+        Repair
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        We build beautiful products with the latest technologies and frameworks.
-        We are a team of passionate developers and designers that love to build
-        amazing products.
+        <TextGenerateEffect words={word} />
       </p>
     </div>
   );
@@ -121,8 +125,8 @@ export const ProductCard = ({
   translate,
 }: {
   product: {
-    title: string;
-    link: string;
+ 
+ 
     thumbnail: string;
   };
   translate: MotionValue<number>;
@@ -135,11 +139,11 @@ export const ProductCard = ({
       whileHover={{
         y: -20,
       }}
-      key={product.title}
+      key={product.thumbnail}
       className="group/product h-96 w-[30rem] relative flex-shrink-0"
     >
-      <Link
-        href={product.link}
+      <div
+       
         className="block group-hover/product:shadow-2xl "
       >
         <Image
@@ -147,13 +151,13 @@ export const ProductCard = ({
           height="600"
           width="600"
           className="object-cover object-left-top absolute h-full w-full inset-0"
-          alt={product.title}
+          alt={product.thumbnail}
         />
-      </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+      </div>
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-50 bg-black pointer-events-none"></div>
+      {/* <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
         {product.title}
-      </h2>
+      </h2> */}
     </motion.div>
   );
 };
