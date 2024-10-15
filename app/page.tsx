@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import { Nav } from "@/components/Nav";
+import OurWorks from "@/components/OurWorks";
 import Head from "next/head";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
         <div className="max-w-7xl w-full">
           <Nav/>
           <Hero/>
+          <OurWorks/>
         </div>
       </main>
     </>
