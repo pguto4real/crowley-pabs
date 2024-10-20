@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import { Nav } from "@/components/Nav";
 import OurWorks from "@/components/OurWorks";
+import Reviews from "@/components/Reviews";
 import Head from "next/head";
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
           <Nav/>
           <Hero/>
           <OurWorks/>
+          <Reviews/>
         </div>
       </main>
     </>
