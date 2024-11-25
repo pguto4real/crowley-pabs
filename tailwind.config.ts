@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+// @ts-ignore
 import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette.js";
 const config: Config = {
   content: [
@@ -16,6 +17,10 @@ const config: Config = {
         slate: {
           800: '#2B4057',  // Base color
           900: '#1F2E40',  // Darker shade
+        },
+        gray: {
+          400: 'rgb(156, 163, 175)', // Add this to your gray palette
+       500: 'rgb(107, 114, 128)',
         },
       },
       backgroundImage: {
@@ -36,6 +41,9 @@ const config: Config = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+      },
+      clip: {
+        'rect': 'rect(0, 0, 0, 0)',
       },
     },
   },

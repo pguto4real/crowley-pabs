@@ -31,12 +31,17 @@ export function Nav({ className }: { className?: string }) {
         <MenuItem
           setActive={setActive}
           active={active}
-          item="Products"
+          item="Reviews"
         ></MenuItem>
         <MenuItem
           setActive={setActive}
           active={active}
-          item="Pricing"
+          item="Works"
+        ></MenuItem>
+        <MenuItem
+          setActive={setActive}
+          active={active}
+          item="Contact"
         ></MenuItem>
       </Menu>
       <div className="hidden sm:flex bg-[#2b4057] px-3 py-3 rounded-full text-white space-x-3 items-center">

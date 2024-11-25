@@ -24,13 +24,16 @@ export const MenuItem = ({
   item: string;
   children?: React.ReactNode;
 }) => {
+  console.log(active)
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+    <div onMouseEnter={() => setActive(item)} className={`relative  cursor-pointer ${active === item && "font-bold" } `}>
       <motion.p
         transition={{ duration: 0.3 }}
-        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
+        className={` text-black hover:opacity-[0.9] dark:text-white`}
       >
+        <Link href={`#${item}`}>
         {item}
+        </Link>
       </motion.p>
       {/* {active !== null && (
         <motion.div
